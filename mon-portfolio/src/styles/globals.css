@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'PressStart2P';
+  src: url('/fonts/PressStart2P-Regular.ttf') format('truetype');
+}
+
+/* Thème Basic (style papier/crayon) */
+.theme-basic {
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --primary: #333333;
+  --accent: #666666;
+  font-family: 'Inter', sans-serif;
+  background: var(--background);
+}
+
+.theme-basic * {
+  border-color: #e5e5e5 !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  transition: all 0.2s ease;
+}
+
+.theme-basic h1, 
+.theme-basic h2, 
+.theme-basic h3 {
+  font-family: 'Inter', sans-serif;
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.theme-basic .skill-card {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  transition: border-color 0.2s ease;
+}
+
+.theme-basic .skill-card:hover {
+  border-color: #d1d1d1 !important;
+}
+
+.theme-basic .project-card {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+}
+
+.theme-basic .btn-basic {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  color: var(--foreground);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.theme-basic .btn-basic:hover {
+  background: #f5f5f5;
+  border-color: #d1d1d1 !important;
+}
+
+.theme-basic .nav-link {
+  position: relative;
+  text-decoration: none;
+}
+
+.theme-basic .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: url("data:image/svg+xml,%3Csvg width='100' height='3' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 0 1.5 Q 25 0, 50 1.5 T 100 1.5' stroke='%232c2c2c' fill='none'/%3E%3C/svg%3E");
+  background-size: 100px 3px;
+  background-repeat: repeat-x;
+}
+
+.theme-basic .btn-retro {
+  border: 2px solid var(--foreground);
+  background: black;
+  color: var(--foreground);
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  box-shadow: 4px 4px 0 var(--foreground);
+}
+
+.theme-basic .btn-retro:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--foreground);
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.theme-basic .scanline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(51, 255, 0, 0.2),
+    transparent
+  );
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+}
+
+/* Animation pour le thème basic */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-1deg); }
+  50% { transform: rotate(1deg); }
+}
+
+.theme-basic .animate-wiggle {
+  animation: wiggle 10s ease-in-out infinite;
+}
+
+.theme-futuristic {
+  --background: #020714;
+  --foreground: #ffffff;
+  --primary: #00ffff;
+  --accent: #ff00ff;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Styles spécifiques au thème basic */
+.theme-basic * {
+  border-color: var(--foreground) !important;
+  background-image: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.theme-basic .animate-scan,
+.theme-basic .animate-pulse {
+  animation: none !important;
+}
+
+/* Animations pour le thème futuriste */
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.animate-scan {
+  animation: scan 2s linear infinite;
+}
+
+/* Ajoutez ceci avec vos autres animations */
+@keyframes gradient-x {
+  0%, 100% {
+    background-size: 200% 100%;
+    background-position: left center;
+  }
+  50% {
+    background-position: right center;
+  }
+}
+
+.animate-gradient-x {
+  animation: gradient-x 15s linear infinite;
+}
