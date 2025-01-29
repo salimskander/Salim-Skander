@@ -1,23 +1,19 @@
 import React, { createContext, useContext, useState } from 'react';
 
-type Theme = 'basic' | 'futuristic';
+type Theme = 'basic' | 'futuristic' | 'professional';
 
 interface ThemeContextType {
   theme: Theme;
-  toggleTheme: () => void;
+  setTheme: (theme: Theme) => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>('basic');
-
-  const toggleTheme = () => {
-    setTheme(prevTheme => prevTheme === 'basic' ? 'futuristic' : 'basic');
-  };
+  const [theme, setTheme] = useState<Theme>('professional');
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
       <div className={`theme-${theme}`}>
         {children}
       </div>

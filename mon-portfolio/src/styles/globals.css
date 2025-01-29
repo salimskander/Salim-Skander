@@ -178,3 +178,61 @@ body {
 .animate-gradient-x {
   animation: gradient-x 15s linear infinite;
 }
+
+/* Mode professionnel */
+.theme-professional {
+  --background: #1a1f2e;
+  --foreground: #e2e8f0;
+  --primary: #334155;
+  --accent: #475569;
+  --text-primary: #94a3b8;
+  --border-color: rgba(148, 163, 184, 0.1);
+  font-family: 'Inter', sans-serif;
+}
+
+.theme-professional * {
+  animation: none !important;
+  transition: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  background-image: none !important;
+}
+
+.theme-professional h1,
+.theme-professional h2,
+.theme-professional h3 {
+  color: var(--foreground);
+}
+
+.theme-professional p {
+  color: var(--text-primary);
+}
+
+.theme-professional .btn-primary {
+  background-color: var(--primary);
+  color: var(--foreground);
+  border: 1px solid var(--border-color);
+}
+
+.theme-professional .btn-primary:hover {
+  background-color: var(--accent);
+}
+
+/* Ajustements spécifiques pour les cartes et conteneurs en mode pro */
+.theme-professional .card,
+.theme-professional .skill-card {
+  background-color: var(--primary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+.theme-professional .project-card {
+  background-color: var(--primary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+.theme-professional .container {
+  background-color: var(--background);
+}

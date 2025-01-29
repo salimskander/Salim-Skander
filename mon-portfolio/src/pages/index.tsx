@@ -11,24 +11,38 @@ const skills = {
 };
 
 // Composant pour une carte de compétence
-const SkillCard = ({ title, skills }: { title: string; skills: string[] }) => (
-  <div className="relative p-6 rounded-lg overflow-hidden group">
-    {/* Effet de bordure animée */}
-    <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 opacity-50 animate-gradient"></div>
-    {/* Fond avec effet holographique */}
-    <div className="relative bg-black/30 backdrop-blur-md p-6 rounded-lg border border-white/10 shadow-[0_0_15px_rgba(0,255,255,0.3)]">
-      <h3 className="text-xl font-bold mb-4 text-cyan-300">{title}</h3>
-      <ul className="space-y-2">
-        {skills.map((skill, index) => (
-          <li key={index} className="flex items-center space-x-2 text-white/80">
-            <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
-            <span>{skill}</span>
-          </li>
-        ))}
-      </ul>
+const SkillCard = ({ title, skills }: { title: string; skills: string[] }) => {
+  const { theme } = useTheme();
+  
+  return (
+    <div className="relative p-6 rounded-lg overflow-hidden group">
+      {theme === 'futuristic' && (
+        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 opacity-50 animate-gradient"></div>
+      )}
+      <div className={`relative p-6 rounded-lg ${
+        theme === 'professional' 
+          ? 'bg-slate-800 border border-slate-700' 
+          : 'bg-black/30 backdrop-blur-md border border-white/10 shadow-[0_0_15px_rgba(0,255,255,0.3)]'
+      }`}>
+        <h3 className={`text-xl font-bold mb-4 ${
+          theme === 'professional' ? 'text-slate-200' : 'text-cyan-300'
+        }`}>{title}</h3>
+        <ul className="space-y-2">
+          {skills.map((skill, index) => (
+            <li key={index} className="flex items-center space-x-2">
+              {theme !== 'professional' && (
+                <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
+              )}
+              <span className={`${
+                theme === 'professional' ? 'text-slate-300' : 'text-white/80'
+              }`}>{skill}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 // Composant pour un projet
 const ProjectCard = ({ title, description }: { title: string; description: string }) => (
@@ -65,9 +79,10 @@ export default function Home() {
               <div className="relative bg-black/30 backdrop-blur-xl p-8 rounded-lg border border-white/10 shadow-[0_0_30px_rgba(0,255,255,0.2)]">
                 <h1 className="text-5xl md:text-7xl font-bold mb-6">
                   <span className="text-white">Bonjour, je suis</span>{" "}
-                  <span className={`${theme === 'futuristic' 
-                    ? 'bg-gradient-to-r from-cyan-400 to-blue-500 text-transparent bg-clip-text' 
-                    : 'text-white'
+                  <span className={`${
+                    theme === 'basic' 
+                      ? 'text-black'
+                      : 'text-white'
                   }`}>
                     Salim Skander
                   </span>
