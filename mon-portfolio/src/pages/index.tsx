@@ -65,13 +65,13 @@ export default function Home() {
               <div className="relative bg-black/30 backdrop-blur-xl p-8 rounded-lg border border-white/10 shadow-[0_0_30px_rgba(0,255,255,0.2)]">
                 <h1 className="text-5xl md:text-7xl font-bold mb-6">
                   <span className="text-white">Bonjour, je suis</span>{" "}
-                  <span className="bg-gradient-to-r from-cyan-400 to-blue-500 text-transparent bg-clip-text">Votre Nom</span>
+                  <span className="bg-gradient-to-r from-cyan-400 to-blue-500 text-transparent bg-clip-text">Salim Skander</span>
                 </h1>
                 <div className="relative">
                   {/* Effet de ligne de scan */}
                   <div className="absolute left-0 w-1 h-full bg-cyan-400/50 animate-pulse"></div>
                   <p className="text-xl text-white/80 pl-4">
-                    Développeur Full Stack spécialisé dans la création d'expériences web futuristes
+                    Développeur Full Stack en formation passionné par le developpement mobile
                   </p>
                 </div>
                 <div className="flex gap-4 mt-8">
