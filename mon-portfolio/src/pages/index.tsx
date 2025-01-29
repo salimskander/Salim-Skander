@@ -65,7 +65,12 @@ export default function Home() {
               <div className="relative bg-black/30 backdrop-blur-xl p-8 rounded-lg border border-white/10 shadow-[0_0_30px_rgba(0,255,255,0.2)]">
                 <h1 className="text-5xl md:text-7xl font-bold mb-6">
                   <span className="text-white">Bonjour, je suis</span>{" "}
-                  <span className="bg-gradient-to-r from-cyan-400 to-blue-500 text-transparent bg-clip-text">Salim Skander</span>
+                  <span className={`${theme === 'futuristic' 
+                    ? 'bg-gradient-to-r from-cyan-400 to-blue-500 text-transparent bg-clip-text' 
+                    : 'text-white'
+                  }`}>
+                    Salim Skander
+                  </span>
                 </h1>
                 <div className="relative">
                   {/* Effet de ligne de scan */}
