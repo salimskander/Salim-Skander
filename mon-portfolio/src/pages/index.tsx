@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from '../context/ThemeContext';
+import { TiltCard } from '../components/TiltCard';
 
 // Données des compétences
 const skills = {
@@ -55,7 +56,7 @@ export default function Home() {
       <main className="relative container mx-auto px-4 py-20">
         {/* Section Hero avec effet holographique */}
         <section className="flex flex-col md:flex-row items-center justify-between gap-12 mb-20">
-          <div className="flex-1 relative">
+          <TiltCard className="flex-1 relative">
             {/* Carte holographique avec effet AR */}
             <div className="relative p-8 rounded-lg overflow-hidden">
               {/* Effet de scan */}
@@ -89,7 +90,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </TiltCard>
           <div className="flex-1 flex justify-center">
             <div className="relative w-64 h-64 md:w-80 md:h-80">
               {/* Cercles lumineux animés */}
