@@ -12,7 +12,11 @@ export const Header = () => {
         <Link 
           href="/" 
           className={`text-2xl font-semibold ${
-            theme === 'basic' ? 'text-foreground' : 'text-white'
+            theme === 'colorful'
+              ? 'header-title'
+              : theme === 'basic' 
+                ? 'text-foreground' 
+                : 'text-white'
           }`}
         >
           Salim Skander

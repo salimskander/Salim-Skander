@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 
-type Theme = 'basic' | 'futuristic' | 'professional';
+type Theme = 'colorful' | 'futuristic' | 'professional';
 
 interface ThemeContextType {
   theme: Theme;

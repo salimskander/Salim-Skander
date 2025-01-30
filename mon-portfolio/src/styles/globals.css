@@ -2,6 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --primary: #333333;
+  --accent: #666666;
+}
+
+/* Thèmes */
+.theme-basic {
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --primary: #333333;
+  --accent: #666666;
+}
+
+.theme-futuristic {
+  --background: #020714;
+  --foreground: #ffffff;
+  --primary: #00ffff;
+  --accent: #ff00ff;
+}
+
+.theme-professional {
+  --background: #1a1a1a;
+  --foreground: #e2e8f0;
+  --primary: #334155;
+  --accent: #475569;
+}
+
+.theme-colorful {
+  --background: #fdfbfb;
+  --foreground: #2d3748;
+  --primary: #f472b6;
+  --accent: rgba(251, 146, 60, 0.2);
+  --gradient-primary: linear-gradient(135deg, #f472b6 0%, #fb923c 100%);
+  --gradient-secondary: linear-gradient(135deg, #f97316 0%, #e11d48 100%);
+  --gradient-tertiary: linear-gradient(135deg, #fb7185 0%, #fbbf24 100%);
+  --gradient-quaternary: linear-gradient(135deg, #f43f5e 0%, #fb923c 100%);
+  background-image: radial-gradient(circle at center, var(--accent) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', sans-serif;
+}
+
 @font-face {
   font-family: 'PressStart2P';
   src: url('/fonts/PressStart2P-Regular.ttf') format('truetype');
@@ -9,10 +57,6 @@
 
 /* Thème Basic (style papier/crayon) */
 .theme-basic {
-  --background: #ffffff;
-  --foreground: #1a1a1a;
-  --primary: #333333;
-  --accent: #666666;
   font-family: 'Inter', sans-serif;
   background: var(--background);
 }
@@ -128,19 +172,6 @@
   animation: wiggle 10s ease-in-out infinite;
 }
 
-.theme-futuristic {
-  --background: #020714;
-  --foreground: #ffffff;
-  --primary: #00ffff;
-  --accent: #ff00ff;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 /* Styles spécifiques au thème basic */
 .theme-basic * {
   border-color: var(--foreground) !important;
@@ -180,16 +211,6 @@ body {
 }
 
 /* Mode professionnel */
-.theme-professional {
-  --background: #1a1f2e;
-  --foreground: #e2e8f0;
-  --primary: #334155;
-  --accent: #475569;
-  --text-primary: #94a3b8;
-  --border-color: rgba(148, 163, 184, 0.1);
-  font-family: 'Inter', sans-serif;
-}
-
 .theme-professional * {
   animation: none !important;
   transition: none !important;
@@ -235,4 +256,129 @@ body {
 
 .theme-professional .container {
   background-color: var(--background);
+}
+
+/* Styles spécifiques au thème Colorful */
+.theme-colorful * {
+  transition: all 0.3s ease;
+}
+
+.theme-colorful h1 {
+  background: var(--gradient-quaternary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.theme-colorful .skill-card {
+  background: white;
+  border-radius: 16px;
+  border: 2px solid transparent;
+  background-image: var(--gradient-tertiary);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  transition: transform 0.3s ease;
+}
+
+.theme-colorful .skill-card:hover {
+  transform: translateY(-5px);
+}
+
+.theme-colorful .btn-primary {
+  background: var(--gradient-primary);
+  color: white;
+}
+
+.theme-colorful .btn-secondary {
+  background: var(--gradient-secondary);
+  color: white;
+}
+
+.theme-colorful .project-card {
+  background: white;
+  border-radius: 16px;
+  border: 2px solid transparent;
+  background-image: var(--gradient-quaternary);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  transition: transform 0.3s ease;
+}
+
+.theme-colorful .project-card:hover {
+  transform: translateY(-5px);
+}
+
+.theme-colorful .nav-link {
+  background: var(--gradient-tertiary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.theme-colorful .tech-tag {
+  background: var(--gradient-secondary);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 9999px;
+}
+
+/* Animation de scroll */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.theme-colorful .animate-on-scroll {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Effet de gradient animé */
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.theme-colorful .gradient-animate {
+  background: var(--gradient-primary);
+  background-size: 200% 200%;
+  animation: gradient 15s ease infinite;
+}
+
+.theme-colorful .hero-section {
+  background: white;
+  border-radius: 16px;
+  border: 2px solid #f472b6;
+}
+
+.theme-colorful .hero-title {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Ajout des styles pour le header en mode colorful */
+.theme-colorful .header-title {
+  background: var(--gradient-quaternary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: bold;
+  background-size: 200% auto;
+  animation: gradient-x 15s linear infinite;
+}
+
+.theme-colorful .header-nav a {
+  color: #f472b6;
+  transition: color 0.3s ease;
+}
+
+.theme-colorful .header-nav a:hover {
+  color: #fb923c;
 }
