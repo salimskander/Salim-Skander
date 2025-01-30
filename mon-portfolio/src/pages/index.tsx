@@ -5,9 +5,34 @@ import { TiltCard } from '../components/TiltCard';
 
 // Données des compétences
 const skills = {
-  frontend: ["React / Next.js", "TypeScript", "Tailwind CSS"],
-  backend: ["Node.js", "Express", "PostgreSQL"],
-  tools: ["Git", "Docker", "AWS"]
+  Langages: [
+    "Python",
+    "TypeScript / JavaScript",
+    "SQL",
+    "HTML & CSS",
+    "Golang",
+    "Swift",
+    "Kotlin"
+  ],
+  Frameworks: [
+    "React / React native",
+    "Django",
+    "Flask",
+    "Express js",
+    "Swift UI"
+
+
+
+  ],
+  Concepts: [
+    "Base de données",
+    "AI", 
+    "REST", 
+    "Développement web/mobile", 
+    "UX/UI Design applicatif", 
+    "POO", 
+    "Logique de programmation"
+  ]
 };
 
 // Composant pour une carte de compétence
@@ -36,6 +61,9 @@ const SkillCard = ({ title, skills }: { title: string; skills: string[] }) => {
             <li key={index} className="flex items-center space-x-2">
               {theme === 'futuristic' && (
                 <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
+              )}
+              {theme === 'colorful' && (
+                <span className="w-1.5 h-1.5 bg-rose-500 rounded-full"></span>
               )}
               <span className={`${
                 theme === 'professional' ? 'text-slate-300' 
@@ -109,7 +137,7 @@ export default function Home() {
                   href="/projects"
                   className={`px-6 py-3 rounded-full transition-all duration-300 ${
                     theme === 'colorful'
-                      ? 'bg-gradient-to-r from-rose-500 to-orange-500 text-white hover:opacity-90'
+                      ? 'bg-gradient-to-r from-rose-500 to-orange-500 text-white hover:shadow-[0_5px_15px_-3px_rgba(251,113,133,0.4)] hover:-translate-y-1 hover:scale-105'
                       : 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white hover:shadow-[0_0_20px_rgba(0,255,255,0.4)]'
                   }`}
                 >
@@ -119,7 +147,7 @@ export default function Home() {
                   href="/contact"
                   className={`px-6 py-3 rounded-full transition-all duration-300 ${
                     theme === 'colorful'
-                      ? 'border-2 border-rose-500 text-rose-500 hover:bg-rose-50'
+                      ? 'border-2 border-rose-500 text-rose-500 hover:bg-gradient-to-r hover:from-rose-500 hover:to-orange-500 hover:text-white hover:border-transparent hover:-translate-y-1 hover:scale-105 hover:shadow-[0_5px_15px_-3px_rgba(251,113,133,0.4)]'
                       : 'border border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10 hover:shadow-[0_0_20px_rgba(0,255,255,0.2)]'
                   }`}
                 >
@@ -163,9 +191,9 @@ export default function Home() {
             Compétences
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <SkillCard title="Frontend" skills={skills.frontend} />
-            <SkillCard title="Backend" skills={skills.backend} />
-            <SkillCard title="Outils" skills={skills.tools} />
+            <SkillCard title="Langages" skills={skills.Langages} />
+            <SkillCard title="Frameworks" skills={skills.Frameworks} />
+            <SkillCard title="Concepts" skills={skills.Concepts} />
           </div>
         </section>
 
