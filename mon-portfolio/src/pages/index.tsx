@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from '../context/ThemeContext';
 import { TiltCard } from '../components/TiltCard';
+import { useState, useEffect } from 'react';
 
 // Données des compétences
 const skills = {
@@ -11,6 +12,7 @@ const skills = {
     "SQL",
     "HTML & CSS",
     "Golang",
+    
     "Swift",
     "Kotlin"
   ],
@@ -34,6 +36,17 @@ const skills = {
     "Logique de programmation"
   ]
 };
+
+// Ajouter cette constante avec les soft skills en haut du fichier
+const softSkills = [
+  "Esprit logique et rationnel",
+  "Adaptabilité",
+  "Minutieux",
+  "Communication",
+  "Méthodologie agile",
+  "Esprit d'équipe",
+  "Curiosité"
+];
 
 // Composant pour une carte de compétence
 const SkillCard = ({ title, skills }: { title: string; skills: string[] }) => {
@@ -74,6 +87,30 @@ const SkillCard = ({ title, skills }: { title: string; skills: string[] }) => {
           ))}
         </ul>
       </div>
+    </div>
+  );
+};
+
+// Ajouter ce composant pour les soft skills flottants
+const FloatingSkill = ({ skill, index }: { skill: string; index: number }) => {
+  const { theme } = useTheme();
+  
+  return (
+    <div 
+      className={`absolute inline-block px-6 py-3 rounded-full text-lg font-medium animate-continuous-float
+        ${theme === 'colorful'
+          ? 'bg-white/90 text-rose-500 border-2 border-rose-500'
+          : theme === 'professional'
+          ? 'bg-slate-800 text-slate-200 border border-slate-700'
+          : 'bg-black/30 text-cyan-300 border border-cyan-500/30 backdrop-blur-sm'
+        }`}
+      style={{
+        left: `${(index * 20) % 70 + 15}%`,
+        animationDelay: `${index * -3}s`,
+        animationDuration: `${15 + index * 2}s`
+      }}
+    >
+      {skill}
     </div>
   );
 };
@@ -159,7 +196,10 @@ export default function Home() {
           <div className="flex-1 flex justify-center">
             <div className="relative w-64 h-64 md:w-80 md:h-80">
               {theme === 'colorful' ? (
-                <div className="absolute inset-0 bg-gradient-to-br from-rose-500/30 to-orange-500/30 rounded-full"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-rose-500/30 to-orange-500/30 rounded-full animate-pulse"></div>
+              ) : theme === 'professional' ? (
+                <div className="absolute inset-0 bg-slate-800/50 rounded-full"></div>
+                
               ) : (
                 <>
                   <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/30 to-transparent rounded-full animate-pulse"></div>
@@ -167,12 +207,14 @@ export default function Home() {
                 </>
               )}
               <Image
-                src="/profile.jpg"
+                src="/salim.jpg"
                 alt="Photo de profil"
                 fill
                 className={`rounded-full object-cover ${
                   theme === 'colorful'
                     ? 'border-2 border-rose-500'
+                    : theme === 'professional'
+                    ? 'border border-slate-700'
                     : 'border-2 border-cyan-500/20 shadow-[0_0_30px_rgba(0,255,255,0.3)]'
                 }`}
                 priority
@@ -194,6 +236,21 @@ export default function Home() {
             <SkillCard title="Langages" skills={skills.Langages} />
             <SkillCard title="Frameworks" skills={skills.Frameworks} />
             <SkillCard title="Concepts" skills={skills.Concepts} />
+          </div>
+        </section>
+
+        <section className="mb-20">
+          <h2 className={`text-3xl font-bold mb-8 ${
+            theme === 'colorful'
+              ? 'bg-gradient-to-r from-rose-500 to-orange-500 text-transparent bg-clip-text'
+              : 'text-cyan-300'
+          }`}>
+            Soft Skills
+          </h2>
+          <div id="softSkillsContainer" className="relative w-full h-[500px]">
+            {softSkills.map((skill, index) => (
+              <FloatingSkill key={skill} skill={skill} index={index} />
+            ))}
           </div>
         </section>
 
