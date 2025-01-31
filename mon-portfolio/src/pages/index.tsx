@@ -55,14 +55,18 @@ const SkillCard = ({ title, skills }: { title: string; skills: string[] }) => {
   return (
     <div className="relative p-6 rounded-lg overflow-hidden group">
       {theme === 'futuristic' && (
-        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 opacity-50 animate-gradient"></div>
+        <>
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-purple-500/20 animate-pulse"></div>
+          <div className="absolute -inset-[2px] bg-gradient-to-r from-cyan-500/50 to-blue-500/50 blur-xl group-hover:opacity-75 transition-opacity opacity-0"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent animate-glow"></div>
+        </>
       )}
       <div className={`relative p-6 rounded-lg ${
         theme === 'professional' 
           ? 'bg-slate-800 border border-slate-700' 
           : theme === 'colorful'
           ? 'bg-white border-2 border-transparent bg-gradient-to-r from-rose-500 to-orange-500 bg-clip-padding'
-          : 'bg-black/30 backdrop-blur-md border border-white/10 shadow-[0_0_15px_rgba(0,255,255,0.3)]'
+          : 'bg-black/30 backdrop-blur-md border border-cyan-500/30'
       }`}>
         <h3 className={`text-xl font-bold mb-4 ${
           theme === 'professional' ? 'text-slate-200' 

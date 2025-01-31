@@ -451,3 +451,52 @@ body {
   transform: scale(1) rotate(0deg);
   box-shadow: none;
 }
+
+@keyframes glow {
+  0%, 100% {
+    opacity: 0.1;
+    transform: translateX(-10%) translateY(-10%) rotate(0deg);
+  }
+  25% {
+    opacity: 0.3;
+    transform: translateX(10%) translateY(-10%) rotate(90deg);
+  }
+  50% {
+    opacity: 0.1;
+    transform: translateX(10%) translateY(10%) rotate(180deg);
+  }
+  75% {
+    opacity: 0.3;
+    transform: translateX(-10%) translateY(10%) rotate(270deg);
+  }
+}
+
+.animate-glow {
+  animation: glow 10s linear infinite;
+}
+
+/* Ajoutez ces styles pour le thème futuriste */
+.theme-futuristic .skill-card {
+  position: relative;
+  isolation: isolate;
+}
+
+.theme-futuristic .skill-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(90deg, #00ffff, #0099ff, #00ffff);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0.5;
+  animation: border-glow 4s linear infinite;
+}
+
+@keyframes border-glow {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
