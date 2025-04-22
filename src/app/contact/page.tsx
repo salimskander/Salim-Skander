@@ -92,7 +92,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="font-medium">Localisation</h3>
-                  <p className="text-foreground/70">Paris, France</p>
+                  <p className="text-foreground/70">Bordeaux, France</p>
                 </div>
               </div>
             </div>
