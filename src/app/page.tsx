@@ -58,46 +58,6 @@ const AnimatedText = ({ text, className = "", delay = 0 }: { text: string, class
   );
 };
 
-// Composant pour la carte 3D interactive
-const Card3D = ({ children, className }: { children: React.ReactNode, className?: string }) => {
-  const [rotateX, setRotateX] = useState(0);
-  const [rotateY, setRotateY] = useState(0);
-  
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const card = e.currentTarget;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    
-    const rotateXValue = (y - centerY) / 20;
-    const rotateYValue = (centerX - x) / 20;
-    
-    setRotateX(rotateXValue);
-    setRotateY(rotateYValue);
-  };
-  
-  const handleMouseLeave = () => {
-    setRotateX(0);
-    setRotateY(0);
-  };
-  
-  return (
-    <motion.div
-      className={`transform-gpu perspective-1000 ${className}`}
-      style={{
-        transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
-        transition: 'transform 0.1s ease-out'
-      }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      whileHover={{ scale: 1.02 }}
-    >
-      {children}
-    </motion.div>
-  );
-};
 
 export default function Home() {
   // Référence pour l'animation de scroll parallaxe
