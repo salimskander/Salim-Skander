@@ -12,7 +12,7 @@ export default function AboutPage() {
       period: 'Oct. 2024 - Présent',
       role: 'Développeur Python',
       company: 'Yunohit',
-      description: "Développement d\'applications et solutions Python au sein d\'une startup innovante, en parallèle de ma formation."
+      description: "Développement d'applications et solutions Python au sein d'une startup innovante, en parallèle de ma formation."
     },
     {
       period: '2022 - Présent',
@@ -22,9 +22,9 @@ export default function AboutPage() {
     },
     {
       period: '2021 - 2022',
-      role: "Prépa École d\'Ingénieur",
+      role: "Prépa École d'Ingénieur",
       company: 'CESI Bordeaux',
-      description: "Formation préparatoire aux études d\'ingénieur, avec introduction aux sciences fondamentales et à la méthodologie."
+      description: "Formation préparatoire aux études d'ingénieur, avec introduction aux sciences fondamentales et à la méthodologie."
     },
     {
       period: '2021',
