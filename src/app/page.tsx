@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import { motion, useScroll, useTransform, useSpring, useInView, AnimatePresence } from 'framer-motion';
+import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import NeonEffect from '@/components/ui/NeonEffect';
 import NeonParticles from '@/components/ui/NeonParticles';
@@ -109,7 +109,6 @@ export default function Home() {
   
   // Références pour les sections et animations d'entrée
   const techSectionRef = useRef(null);
-  const softSectionRef = useRef(null);
   const ctaSectionRef = useRef(null);
   
   const techSectionInView = useInView(techSectionRef, { once: true, amount: 0.3 });

@@ -54,7 +54,7 @@ export default function ContactPage() {
           >
             <h2 className="text-2xl font-bold mb-6">Parlons de votre projet</h2>
             <p className="text-foreground/80 mb-8">
-              Vous avez un projet en tête ou une opportunité à discuter ? Je serais ravi d'échanger avec vous pour voir comment je peux vous aider.
+              Vous avez un projet en tête ou une opportunité à discuter ? Je serais ravi d&apos;échanger avec vous pour voir comment je peux vous aider.
             </p>
             
             <div className="space-y-4">

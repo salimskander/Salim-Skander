@@ -2,11 +2,8 @@
 
 import Link from 'next/link';
 import { motion, useScroll, useSpring } from 'framer-motion';
-import { useRef } from 'react';
 
 export default function Footer() {
-  const ref = useRef(null);
-  
   return (
     <footer className="py-12 px-4 border-t border-foreground/10">
       <div className="container mx-auto">
