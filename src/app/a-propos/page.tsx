@@ -89,13 +89,12 @@ export default function AboutPage() {
                   // Ouvre le CV dans un nouvel onglet
                   window.open('/CV alternance Salim Skander.pdf', '_blank');
                   
-                  // Crée un élément lien temporaire pour le téléchargement
-                  const downloadLink = document.createElement('a');
-                  downloadLink.href = '/CV alternance Salim Skander.pdf';
-                  downloadLink.download = 'CV_Salim_Skander.pdf';
-                  document.body.appendChild(downloadLink);
-                  downloadLink.click();
-                  document.body.removeChild(downloadLink);
+                  const link = document.createElement('a');
+                  link.href = '/CV alternance Salim Skander.pdf';
+                  link.download = 'CV_Salim_Skander.pdf';
+                  link.setAttribute('download', 'CV_Salim_Skander.pdf');
+                  link.setAttribute('type', 'application/pdf');
+                  link.click();
                 }}
                 className="rounded-full bg-gradient-to-r from-purple-600 to-violet-600 text-white px-6 py-3 font-medium hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 cursor-pointer"
               >
