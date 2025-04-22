@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, Suspense } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import LoadingIndicator from '../ui/LoadingIndicator';
 
-export default function NavigationEvents() {
+function NavigationEventsContent() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [isNavigating, setIsNavigating] = useState(false);
@@ -56,4 +56,12 @@ export default function NavigationEvents() {
   }, [pathname, searchParams]);
 
   return showLoading && isNavigating ? <LoadingIndicator /> : null;
+}
+
+export default function NavigationEvents() {
+  return (
+    <Suspense fallback={null}>
+      <NavigationEventsContent />
+    </Suspense>
+  );
 } 
