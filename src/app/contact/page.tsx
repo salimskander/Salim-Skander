@@ -11,6 +11,7 @@ export default function ContactPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState('');
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormState({
@@ -22,16 +23,33 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError('');
     
-    // Simuler un envoi de formulaire
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setFormState({ name: '', email: '', message: '' });
-    
-    // Reset après 3 secondes
-    setTimeout(() => setIsSubmitted(false), 3000);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formState),
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.error || 'Une erreur est survenue');
+      }
+      
+      setIsSubmitted(true);
+      setFormState({ name: '', email: '', message: '' });
+      
+      // Reset après 3 secondes
+      setTimeout(() => setIsSubmitted(false), 3000);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Une erreur est survenue');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   
   return (
@@ -117,6 +135,12 @@ export default function ContactPage() {
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
+                {error && (
+                  <div className="bg-red-500/10 text-red-500 p-4 rounded-lg">
+                    <p>{error}</p>
+                  </div>
+                )}
+                
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium mb-2">Nom</label>
                   <input
