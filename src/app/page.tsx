@@ -117,7 +117,7 @@ export default function Home() {
   return (
     <>
       {/* Ajout des particules néon */}
-      <NeonParticles count={30} />
+      <NeonParticles count={50} />
       
       {/* Conteneur principal avec animation de défilement */}
       <div ref={ref} className="relative">
