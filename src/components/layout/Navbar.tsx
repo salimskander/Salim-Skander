@@ -30,6 +30,7 @@ export default function Navbar() {
               top: 0,
               behavior: 'smooth',
             });
+            // good code
           }
         }}>
           <motion.span 
