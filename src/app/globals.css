@@ -1,0 +1,1055 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  
+  /* Variables pour les effets néon */
+  --neon-purple: #9333EA;
+  --neon-purple-glow: rgba(147, 51, 234, 0.6);
+  --neon-violet: #8B5CF6;
+  --neon-violet-glow: rgba(139, 92, 246, 0.6);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    
+    /* Variables pour les effets néon en mode sombre */
+    --neon-purple-glow: rgba(147, 51, 234, 0.8);
+    --neon-violet-glow: rgba(139, 92, 246, 0.8);
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-sans);
+}
+
+/* Classes d'utilitaires pour les effets néon */
+.text-neon-purple {
+  color: var(--neon-purple);
+  text-shadow: 0 0 5px var(--neon-purple-glow),
+              0 0 10px var(--neon-purple-glow);
+}
+
+.border-neon-purple {
+  border-color: var(--neon-purple);
+  box-shadow: 0 0 5px var(--neon-purple-glow),
+              0 0 10px var(--neon-purple-glow);
+}
+
+.bg-neon-purple {
+  background-color: var(--neon-purple);
+  box-shadow: 0 0 10px var(--neon-purple-glow),
+              0 0 20px var(--neon-purple-glow);
+}
+
+/* Styles pour le bouton sophistiqué amélioré */
+.fancy-button-container {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+.fancy-button-wrapper {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform, box-shadow, background-position;
+  transform: translateZ(0);
+  isolation: isolate;
+}
+
+.fancy-button-glow {
+  mix-blend-mode: soft-light;
+  will-change: opacity;
+  filter: blur(5px);
+}
+
+.fancy-button-border {
+  backdrop-filter: blur(3px);
+  will-change: box-shadow;
+}
+
+.fancy-button-text {
+  will-change: letter-spacing, transform;
+  font-weight: 500;
+}
+
+.fancy-button-shine {
+  will-change: left;
+  pointer-events: none;
+  filter: blur(0.5px);
+}
+
+.fancy-button-scanline {
+  will-change: top, opacity;
+  pointer-events: none;
+}
+
+.fancy-button-particle {
+  will-change: transform, opacity;
+  filter: blur(0.5px);
+}
+
+/* Animation du bouton reflective après le survol */
+@keyframes buttonAfterGlow {
+  0% {
+    opacity: 0.7;
+    transform: translateY(-10px) scaleX(0.8);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10px) scaleX(1.2);
+  }
+}
+
+.fancy-button-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  right: 0;
+  height: 15px;
+  background: radial-gradient(ellipse at center, rgba(147, 51, 234, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0;
+  filter: blur(5px);
+  transform: scaleX(0.8);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.fancy-button-wrapper:hover::after {
+  animation: buttonAfterGlow 1.5s ease-out forwards;
+}
+
+/* Effet de micro-vibration subtile */
+@keyframes microVibration {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(0.5px, 0.3px) rotate(0.2deg); }
+  50% { transform: translate(-0.3px, -0.2px) rotate(-0.1deg); }
+  75% { transform: translate(0.2px, -0.3px) rotate(0.3deg); }
+}
+
+.fancy-button-wrapper:hover .fancy-button-text {
+  animation: microVibration 0.2s infinite linear;
+}
+
+.fancy-button-wrapper:active {
+  transform: translateY(1px);
+}
+
+/* Styles pour le nouveau FancyButton avec effet de dégradé fluide */
+.fancy-glow-button-container {
+  position: relative;
+  display: inline-block;
+}
+
+.fancy-glow-button {
+  text-decoration: none;
+  position: relative;
+  border: none;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+  background: linear-gradient(90deg, #9333ea, #a855f7, #c084fc, #9333ea);
+  background-size: 300%;
+  border-radius: 9999px;
+  z-index: 1;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.fancy-glow-button:hover {
+  animation: gradientAnimation 8s linear infinite;
+  border: none;
+  transform: translateY(-2px);
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 300%;
+  }
+}
+
+.fancy-glow-button::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  z-index: -1;
+  background: linear-gradient(90deg, #9333ea, #a855f7, #c084fc, #9333ea);
+  background-size: 400%;
+  border-radius: 9999px;
+  transition: all 0.8s ease;
+  opacity: 0;
+}
+
+.fancy-glow-button:hover::before {
+  filter: blur(15px);
+  opacity: 0.7;
+}
+
+.fancy-glow-button:active {
+  transform: translateY(0px);
+  background: linear-gradient(32deg, #9333ea, #a855f7, #c084fc, #9333ea);
+}
+
+.fancy-glow-button:active::before {
+  filter: blur(10px);
+  opacity: 0.5;
+}
+
+/* Supprimons l'animation de tremblement qui ne vous plaît pas */
+.fancy-button-wrapper:hover .fancy-button-text {
+  animation: none;
+}
+
+/* Style exact du bouton à effet de dégradé animé */
+.glow-button-wrapper {
+  display: inline-block;
+}
+
+.glow-button {
+  text-decoration: none;
+  position: relative;
+  border: none;
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  color: #fff;
+  width: 12em;
+  height: 3em;
+  line-height: 2em;
+  text-align: center;
+  background: linear-gradient(90deg, #9333ea, #d946ef, #a855f7, #9333ea);
+  background-size: 300%;
+  border-radius: 30px;
+  z-index: 1;
+}
+
+.glow-button:hover {
+  animation: ani 8s linear infinite;
+  border: none;
+}
+
+@keyframes ani {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
+}
+
+.glow-button:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+  background: linear-gradient(90deg, #9333ea, #d946ef, #a855f7, #9333ea);
+  background-size: 400%;
+  border-radius: 35px;
+  transition: 1s;
+}
+
+.glow-button:hover::before {
+  filter: blur(20px);
+}
+
+.glow-button:active {
+  background: linear-gradient(32deg, #9333ea, #d946ef, #a855f7, #9333ea);
+}
+
+/* Styles pour le bouton de contact avec animation */
+.contact-button {
+  position: relative;
+  font-family: inherit;
+  text-align: center;
+  background-size: 300%;
+  z-index: 1;
+}
+
+.contact-button span {
+  display: block;
+  margin-left: 0.3em;
+  transition: all 0.3s ease-in-out;
+}
+
+.contact-button svg {
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.contact-button:hover .svg-wrapper-1 {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.contact-button:hover .svg-wrapper {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+
+.contact-button:hover svg {
+  transform: rotate(45deg) scale(1.1);
+}
+
+.contact-button:hover span {
+  transform: translateX(200%);
+  opacity: 0;
+}
+
+.contact-button:active {
+  transform: scale(0.95);
+}
+
+/* Effet de bordure lumineuse */
+.contact-button::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+  background: linear-gradient(90deg, #9333ea, #d946ef, #a855f7, #9333ea);
+  background-size: 400%;
+  border-radius: 35px;
+  transition: 1s;
+  opacity: 0;
+}
+
+.contact-button:hover::before {
+  filter: blur(20px);
+  opacity: 0.7;
+}
+
+@keyframes fly-1 {
+  from {
+    transform: translateY(0.1em);
+  }
+  to {
+    transform: translateY(-0.1em);
+  }
+}
+
+/* Styles pour la carte */
+.card {
+  width: 300px;
+  height: 400px;
+  perspective: 1000px;
+}
+
+.content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.card:hover .content {
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #151515;
+}
+
+/* Front face */
+.front {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-image {
+  height: 50%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-title {
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* Back face améliorée */
+.back {
+  transform: rotateY(180deg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(145deg, #1a1a1a, #151515);
+}
+
+.description {
+  color: white;
+  text-align: center;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+/* Style du bouton "Voir le site" */
+.site-button {
+  position: relative;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  color: white;
+  border: none;
+  overflow: hidden;
+  transition: color 0.3s ease;
+  z-index: 1;
+}
+
+.site-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--neon-purple);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+  z-index: -1;
+}
+
+.site-button:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.site-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--neon-purple);
+  transition: opacity 0.3s ease;
+}
+
+.site-button:hover::after {
+  opacity: 0;
+}
+
+/* Style du bouton "Détails" */
+.details-button {
+  position: relative;
+  padding: 0.75rem 1.5rem;
+  background: var(--neon-purple);
+  color: white;
+  border: none;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.details-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.details-button:hover::before {
+  width: 300%;
+  height: 300%;
+}
+
+/* Effet de survol commun aux deux boutons */
+.site-button:hover, .details-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(147, 51, 234, 0.3);
+}
+
+.site-button:active, .details-button:active {
+  transform: translateY(-1px);
+}
+
+.svg-wrapper {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svg-wrapper svg {
+  width: 100%;
+  height: 100%;
+}
+
+.back-content {
+  position: absolute;
+  width: 99%;
+  height: 99%;
+  background-color: #151515;
+  border-radius: 12px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  background: linear-gradient(145deg, #1a1a1a, #151515);
+  box-shadow: inset 0 0 15px rgba(147, 51, 234, 0.3);
+}
+
+.front-content .badge {
+  background: rgba(147, 51, 234, 0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  width: fit-content;
+  font-size: 0.875rem;
+  border: 1px solid rgba(147, 51, 234, 0.3);
+  color: #fff;
+}
+
+.title {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title p {
+  margin: 0;
+  font-weight: 600;
+}
+
+.card-footer {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+  margin-top: 8px;
+}
+
+.circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(147, 51, 234, 0.5);
+  position: absolute;
+  filter: blur(20px);
+  animation: floating 3000ms infinite ease-in-out;
+}
+
+#bottom {
+  background: rgba(126, 34, 206, 0.5);
+  width: 180px;
+  height: 180px;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+#right {
+  background: rgba(107, 33, 168, 0.5);
+  width: 50px;
+  height: 50px;
+  right: 20px;
+  top: 20px;
+}
+
+.front .img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.front .img::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  z-index: 1;
+}
+
+.front-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.project-info {
+  flex: 1;
+  padding: 1.5rem;
+  background: linear-gradient(145deg, #1a1a1a, #151515);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.svg-wrapper {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0.5rem;
+}
+
+.tech-stack {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tech-badge {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background-color: rgba(147, 51, 234, 0.2);
+  color: var(--neon-purple);
+  border: 1px solid var(--neon-purple);
+}
+
+/* Ajout d'une légère animation sur l'image au hover */
+.card:hover .project-image img {
+  transform: scale(1.05);
+  transition: transform 0.6s ease;
+}
+
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.05);
+  }
+}
+
+@keyframes rotation_481 {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+/* Styles pour les boutons */
+.github-button, .details-button {
+  position: relative;
+  padding: 10px 24px;
+  border-radius: 12px;
+  background: transparent;
+  border: 2px solid var(--neon-purple);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.button-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.github-icon, .arrow-icon {
+  width: 20px;
+  height: 20px;
+  fill: white;
+  transition: transform 0.3s ease;
+}
+
+.button-text {
+  color: white;
+  font-weight: 500;
+  transition: transform 0.3s ease;
+}
+
+/* Animation GitHub Button */
+.github-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--neon-purple);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.github-button:hover::before {
+  transform: translateX(0);
+}
+
+.github-button:hover .github-icon {
+  transform: rotate(360deg);
+}
+
+/* Animation Details Button */
+.details-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--neon-purple);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+.details-button:hover::before {
+  transform: translateX(0);
+}
+
+.details-button:hover .arrow-icon {
+  transform: translateX(5px);
+}
+
+/* Styles modernes pour les cartes de projets - Version violette/néon sur la zone de texte */
+.project-card {
+  position: relative;
+  cursor: pointer;
+  background: rgba(18, 16, 22, 0.85);
+  border-radius: 16px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(147, 51, 234, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(147, 51, 234, 0.25);
+  border: 1px solid rgba(147, 51, 234, 0.4);
+}
+
+.card-image-container {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.project-card:hover .card-image {
+  transform: scale(1.05);
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.card-tech-stack {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tech-badge {
+  font-size: 0.65rem;
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background-color: rgba(147, 51, 234, 0.25);
+  color: #f5f3ff;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(147, 51, 234, 0.4);
+  transition: all 0.3s ease;
+  text-shadow: 0 0 8px rgba(147, 51, 234, 0.5);
+}
+
+.project-card:hover .tech-badge {
+  background-color: rgba(147, 51, 234, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px rgba(147, 51, 234, 0.4);
+}
+
+.card-content {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(91, 33, 182, 0.2) 0%, rgba(124, 58, 237, 0.1) 100%);
+  border-top: 1px solid rgba(147, 51, 234, 0.2);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(147, 51, 234, 0.6), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.project-card:hover .card-content::before {
+  opacity: 1;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  background: linear-gradient(90deg, #f5f3ff, #ddd6fe);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 2px rgba(147, 51, 234, 0.1);
+}
+
+.card-description {
+  font-size: 0.9rem;
+  color: rgba(245, 243, 255, 0.8);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+}
+
+.details-link {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(245, 243, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.details-link:hover {
+  color: #a855f7;
+  text-shadow: 0 0 8px rgba(168, 85, 247, 0.5);
+}
+
+.arrow-icon {
+  width: 16px;
+  height: 16px;
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.details-link:hover .arrow-icon {
+  transform: translateX(4px);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: rgba(245, 243, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  color: rgba(245, 243, 255, 0.9);
+  font-size: 0.85rem;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(147, 51, 234, 0.3);
+}
+
+.action-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #9333ea, #a855f7);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.action-button:hover::before {
+  opacity: 1;
+}
+
+.action-button svg {
+  width: 18px;
+  height: 18px;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.action-button span {
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.action-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px -10px rgba(147, 51, 234, 0.6);
+  color: white;
+}
+
+.github-button {
+  border-color: rgba(147, 51, 234, 0.4);
+}
+
+.live-button {
+  border-color: rgba(168, 85, 247, 0.4);
+}
+
+.action-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px -5px rgba(147, 51, 234, 0.6);
+}
+
+/* Animation de brillance au survol - spécifique à la zone de texte */
+.card-content::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 250%;
+  height: 250%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(147, 51, 234, 0.05) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+  opacity: 0;
+  z-index: 0;
+}
+
+.project-card:hover .card-content::after {
+  opacity: 1;
+  transform: rotate(30deg) translate(-30%, -30%);
+}
+
+/* Style pour rendre toute la carte cliquable */
+.project-card {
+  position: relative;
+  cursor: pointer;
+}
+
+.card-main-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* S'assurer que les boutons d'action sont au-dessus du lien principal */
+.action-buttons {
+  position: relative;
+  z-index: 2;
+}
+
+.action-button {
+  position: relative;
+  z-index: 2;
+}
+
+/* Effet de pulsation subtil pour indiquer que la carte est cliquable */
+@keyframes pulse-border {
+  0% {
+    box-shadow: 0 0 0 0 rgba(147, 51, 234, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(147, 51, 234, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(147, 51, 234, 0);
+  }
+}
+
+.project-card:active {
+  transform: translateY(-4px) scale(0.98);
+  transition: transform 0.2s ease;
+}
