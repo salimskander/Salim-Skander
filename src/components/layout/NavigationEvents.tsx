@@ -28,6 +28,15 @@ function NavigationEventsContent() {
     const handleLinkClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const link = target.closest('a');
+      
+      // Vérifier si c'est un clic sur le logo alors qu'on est déjà sur la page d'accueil
+      if (link && link.getAttribute('href') === '/' && pathname === '/' && 
+          (link.classList.contains('font-[\'Playfair_Display\']') || 
+           link.querySelector('.font-[\'Playfair_Display\']'))) {
+        // Ne pas déclencher la navigation
+        return;
+      }
+      
       if (link && link.href.includes(window.location.origin)) {
         handleStartNavigation();
       }
@@ -40,7 +49,7 @@ function NavigationEventsContent() {
       window.removeEventListener('beforeunload', handleStartNavigation);
       document.removeEventListener('click', handleLinkClick);
     };
-  }, []);
+  }, [pathname]);
 
   // Effet pour réinitialiser l'état lorsque la navigation est terminée
   useEffect(() => {
