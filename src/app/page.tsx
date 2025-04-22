@@ -358,7 +358,7 @@ export default function Home() {
                   repeatDelay: 1
                 }}
               >
-                Prêt à collaborer?
+                Prêt à collaborer ?
               </motion.h2>
               
               <motion.div

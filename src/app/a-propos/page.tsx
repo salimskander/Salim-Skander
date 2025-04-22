@@ -75,9 +75,9 @@ export default function AboutPage() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-col justify-center"
           >
-            <h2 className="text-2xl font-bold mb-6">Qui suis-je?</h2>
+            <h2 className="text-2xl font-bold mb-6">Qui suis-je ?</h2>
             <p className="text-foreground/80 mb-4">
-              Bonjour! Je suis Salim Skander, étudiant en informatique et développeur passionné par la création d'applications innovantes et intuitives. Actuellement en 3ème année à Ynov Bordeaux, je développe mes compétences en programmation tout en acquérant une expérience professionnelle concrète.
+              Bonjour ! Je suis Salim Skander, étudiant en informatique et développeur passionné par la création d'applications innovantes et intuitives. Actuellement en 3ème année à Ynov Bordeaux, je développe mes compétences en programmation tout en acquérant une expérience professionnelle concrète.
             </p>
             <p className="text-foreground/80 mb-8">
               Je suis extrêmement curieux par nature, et je crois fermement que dans un monde aussi changeant que l'informatique, la curiosité couplée à la capacité d'apprendre rapidement est la clé du succès. J'adore résoudre des problèmes complexes et j'ai une véritable appétence pour l'expérience utilisateur, cherchant toujours à créer des interfaces intuitives et agréables qui répondent aux besoins réels des utilisateurs.
@@ -179,7 +179,7 @@ export default function AboutPage() {
         >
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_120%,rgba(147,51,234,0.1),transparent_70%)]"></div>
           
-          <h2 className="text-2xl md:text-3xl font-bold mb-4 relative z-10">Envie de collaborer?</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 relative z-10">Envie de collaborer ?</h2>
           <p className="text-foreground/70 mb-8 max-w-2xl mx-auto relative z-10">
             Je suis toujours ouvert à discuter de nouveaux projets, opportunités ou partenariats.
           </p>
