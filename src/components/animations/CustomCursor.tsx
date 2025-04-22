@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 export default function CustomCursor() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -41,32 +41,33 @@ export default function CustomCursor() {
     };
   }, []);
 
-  const variants = {
+  const variants: Variants = {
     default: {
-      x: mousePosition.x - 16,
-      y: mousePosition.y - 16,
-      height: 32,
-      width: 32,
-      backgroundColor: 'rgba(255, 255, 255, 0.1)',
-      mixBlendMode: 'difference',
-      border: '1px solid rgba(255, 255, 255, 0.5)'
+      x: mousePosition.x - 10,
+      y: mousePosition.y - 10,
+      height: 20,
+      width: 20,
+      backgroundColor: "white",
+      mixBlendMode: "difference" as const,
+      border: "1px solid rgba(255, 255, 255, 0.5)"
     },
     hover: {
-      x: mousePosition.x - 24,
-      y: mousePosition.y - 24,
-      height: 48,
-      width: 48,
-      backgroundColor: 'rgba(255, 255, 255, 0.2)',
-      mixBlendMode: 'difference',
-      border: '1px solid rgba(255, 255, 255, 0.8)'
+      x: mousePosition.x - 15,
+      y: mousePosition.y - 15,
+      height: 30,
+      width: 30,
+      backgroundColor: "white",
+      mixBlendMode: "difference" as const,
+      border: "1px solid rgba(255, 255, 255, 0.8)"
     },
     click: {
-      x: mousePosition.x - 16,
-      y: mousePosition.y - 16,
-      height: 32,
-      width: 32,
-      backgroundColor: 'rgba(255, 255, 255, 0.4)',
-      mixBlendMode: 'difference'
+      x: mousePosition.x - 20,
+      y: mousePosition.y - 20,
+      height: 40,
+      width: 40,
+      backgroundColor: "rgba(255, 255, 255, 0.8)",
+      mixBlendMode: "difference" as const,
+      border: "1px solid white"
     }
   };
 
