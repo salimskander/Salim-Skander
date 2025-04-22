@@ -48,7 +48,7 @@ export default function Footer() {
               
               {/* GitHub */}
               <a 
-                href="https://github.com/" 
+                href="https://github.com/salimskander" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="w-10 h-10 rounded-full bg-foreground/10 flex items-center justify-center transition-all hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:text-background hover:scale-110 hover:shadow-[0_0_15px_rgba(147,51,234,0.6)]"
@@ -61,7 +61,7 @@ export default function Footer() {
               
               {/* LinkedIn */}
               <a 
-                href="https://linkedin.com/in/" 
+                href="https://linkedin.com/in/salimskander" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="w-10 h-10 rounded-full bg-foreground/10 flex items-center justify-center transition-all hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:text-background hover:scale-110 hover:shadow-[0_0_15px_rgba(147,51,234,0.6)]"
