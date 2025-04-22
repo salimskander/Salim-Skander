@@ -22,7 +22,7 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-4">Salim Skander</h3>
             <p className="text-foreground/70 max-w-xs">
-              Développeur full stack passionné par la création d'applications web modernes et intuitives.
+              Développeur full stack passionné par la création d&apos;applications web modernes et intuitives.
             </p>
           </div>
           
