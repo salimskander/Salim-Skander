@@ -245,7 +245,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={techSectionInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="text-center mb-16"
+              className="text-center mb-12"
             >
               <h2 className="text-3xl md:text-5xl font-bold tracking-wide bg-gradient-to-r from-purple-600 via-violet-500 to-purple-600 bg-clip-text text-transparent mb-4">
                 COMPÉTENCES
