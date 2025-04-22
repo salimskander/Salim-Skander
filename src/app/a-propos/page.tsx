@@ -12,7 +12,7 @@ export default function AboutPage() {
       period: 'Oct. 2024 - Présent',
       role: 'Développeur Python',
       company: 'Yunohit',
-      description: 'Développement d&apos;applications et solutions Python au sein d&apos;une startup innovante, en parallèle de ma formation.'
+      description: "Développement d'applications et solutions Python au sein d'une startup innovante, en parallèle de ma formation."
     },
     {
       period: '2022 - Présent',
@@ -22,9 +22,9 @@ export default function AboutPage() {
     },
     {
       period: '2021 - 2022',
-      role: 'Prépa École d&apos;Ingénieur',
+      role: "Prépa École d'Ingénieur",
       company: 'CESI Bordeaux',
-      description: 'Formation préparatoire aux études d&apos;ingénieur, avec introduction aux sciences fondamentales et à la méthodologie.'
+      description: "Formation préparatoire aux études d'ingénieur, avec introduction aux sciences fondamentales et à la méthodologie."
     },
     {
       period: '2021',
@@ -77,10 +77,10 @@ export default function AboutPage() {
           >
             <h2 className="text-2xl font-bold mb-6">Qui suis-je?</h2>
             <p className="text-foreground/80 mb-4">
-              Bonjour! Je suis Salim Skander, étudiant en informatique et développeur passionné par la création d&apos;applications innovantes et intuitives. Actuellement en 3ème année à Ynov Bordeaux, je développe mes compétences en programmation tout en acquérant une expérience professionnelle concrète.
+              Bonjour! Je suis Salim Skander, étudiant en informatique et développeur passionné par la création d'applications innovantes et intuitives. Actuellement en 3ème année à Ynov Bordeaux, je développe mes compétences en programmation tout en acquérant une expérience professionnelle concrète.
             </p>
             <p className="text-foreground/80 mb-8">
-              Je suis extrêmement curieux par nature, et je crois fermement que dans un monde aussi changeant que l&apos;informatique, la curiosité couplée à la capacité d&apos;apprendre rapidement est la clé du succès. J&apos;adore résoudre des problèmes complexes et j&apos;ai une véritable appétence pour l&apos;expérience utilisateur, cherchant toujours à créer des interfaces intuitives et agréables qui répondent aux besoins réels des utilisateurs.
+              Je suis extrêmement curieux par nature, et je crois fermement que dans un monde aussi changeant que l'informatique, la curiosité couplée à la capacité d'apprendre rapidement est la clé du succès. J'adore résoudre des problèmes complexes et j'ai une véritable appétence pour l'expérience utilisateur, cherchant toujours à créer des interfaces intuitives et agréables qui répondent aux besoins réels des utilisateurs.
             </p>
             
             <div className="flex flex-wrap gap-4 mt-2">
@@ -153,7 +153,7 @@ export default function AboutPage() {
                   <div className="absolute left-[7px] md:left-[132px] top-[28px] w-0.5 h-[calc(100%+48px)] bg-gradient-to-b from-purple-500/30 to-transparent"></div>
                 )}
                 
-                {/* Point pour marquer l&apos;année */}
+                {/* Point pour marquer l'année */}
                 <div className="w-[15px] h-[15px] rounded-full bg-purple-500 absolute left-0 md:left-32 top-[10px] z-10 shadow-[0_0_8px_rgba(147,51,234,0.6)]"></div>
                 
                 <div className="w-24 md:w-32 shrink-0 text-foreground/60 font-medium pl-8 md:pl-0 md:text-right -ml-4">
