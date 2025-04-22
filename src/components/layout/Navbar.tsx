@@ -54,6 +54,14 @@ export default function Navbar() {
                 <Link 
                   href={href}
                   className={`text-foreground/80 hover:text-foreground transition-colors relative group ${isActive ? 'text-foreground' : ''}`}
+                  onClick={(e) => {
+                    // Effet visuel immédiat au clic
+                    const target = e.currentTarget;
+                    target.classList.add('animate-pulse');
+                    setTimeout(() => {
+                      target.classList.remove('animate-pulse');
+                    }, 300);
+                  }}
                 >
                   {item.charAt(0).toUpperCase() + item.slice(1)}
                   <span className={`absolute -bottom-1 left-0 h-0.5 bg-purple-500 transition-all duration-300 ${isActive ? 'w-full shadow-[0_0_5px_#9333EA]' : 'w-0 group-hover:w-full group-hover:shadow-[0_0_5px_#9333EA]'}`} />

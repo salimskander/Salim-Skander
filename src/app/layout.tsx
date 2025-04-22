@@ -5,6 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import NeonFloatingButton from "@/components/ui/NeonFloatingButton";
 import NeonParticles from "@/components/ui/NeonParticles";
+import NavigationEvents from "@/components/layout/NavigationEvents";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,11 +32,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <NeonParticles count={50} />
+        <NeonParticles count={25} />
         <Navbar />
         <main>{children}</main>
         <Footer />
         <NeonFloatingButton />
+        <NavigationEvents />
       </body>
     </html>
   );

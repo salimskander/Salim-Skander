@@ -167,7 +167,7 @@ export default function Home() {
   return (
     <>
       {/* Ajout des particules néon */}
-      <NeonParticles count={80} />
+      <NeonParticles count={30} />
       
       {/* Conteneur principal avec animation de défilement */}
       <div ref={ref} className="relative">
@@ -244,7 +244,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={techSectionInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-5xl font-bold tracking-wide bg-gradient-to-r from-purple-600 via-violet-500 to-purple-600 bg-clip-text text-transparent mb-4">
