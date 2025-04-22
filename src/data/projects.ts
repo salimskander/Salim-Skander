@@ -25,10 +25,6 @@ export const projects: Project[] = [
     description: "Application React Native innovante connectant organisateurs et participants d'événements. Permet le suivi d'organisateurs et la gestion d'événements en temps réel avec une Interface intuitive",
     technologies: ["React Native", "Expo", "Firebase", "Typescript"],
     image: "/projects/tix-logo.png",
-    images: [
-      "/projects/tix-detail-1.jpg",
-      "/projects/tix-detail-2.jpg"
-    ],
     github: "https://github.com/salimskander/tix-CLI",
     date: "Mars 2023",
     category: "Mobile Application"
@@ -40,10 +36,6 @@ export const projects: Project[] = [
     longDescription: "🎫 API REST moderne pour la gestion d'événements et de billetterie. Construite avec Node.js, Express et MongoDB. Inclut authentification JWT, paiements sécurisés et documentation Swagger.",
     technologies: ["Node.js", "Express", "MongoDB", "TypeScript"],
     image: "/projects/tix-api-logo.png",
-    images: [
-      "/projects/tix-api-detail-1.jpg",
-      "/projects/tix-api-detail-2.jpg"
-    ],
     github: "https://github.com/salimskander/tix-api",
     date: "Juin 2023",
     category: "Mobile Application"
