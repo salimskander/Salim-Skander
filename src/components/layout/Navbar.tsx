@@ -23,7 +23,12 @@ export default function Navbar() {
   return (
     <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${isScrolled ? 'py-3 bg-background/80 backdrop-blur-md shadow-[0_4px_30px_rgba(147,51,234,0.15)]' : 'py-5'}`}>
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <Link href="/" className="font-['Playfair_Display'] text-2xl tracking-wider">
+        <Link href="/" className="font-['Playfair_Display'] text-2xl tracking-wider" onClick={(e) => {
+          // Empêcher la navigation si on est déjà sur la page d'accueil
+          if (pathname === '/') {
+            e.preventDefault();
+          }
+        }}>
           <motion.span 
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
