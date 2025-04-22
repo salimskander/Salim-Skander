@@ -1,9 +1,8 @@
 'use client';
 
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useSpring, useInView, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import Image from 'next/image';
 import NeonEffect from '@/components/ui/NeonEffect';
 import NeonParticles from '@/components/ui/NeonParticles';
 import FancyButton from '@/components/ui/FancyButton';
@@ -114,7 +113,6 @@ export default function Home() {
   const ctaSectionRef = useRef(null);
   
   const techSectionInView = useInView(techSectionRef, { once: true, amount: 0.3 });
-  const softSectionInView = useInView(softSectionRef, { once: true, amount: 0.3 });
   const ctaSectionInView = useInView(ctaSectionRef, { once: true, amount: 0.5 });
   
   // Effet parallaxe pour différents éléments
@@ -122,13 +120,6 @@ export default function Home() {
   const y2 = useTransform(scrollYProgress, [0, 1], [0, -150]);
   const y3 = useTransform(scrollYProgress, [0, 1], [0, -200]);
   
-  // Animation fluide de la barre de progression
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
-
   const hardSkills = [
     {
       name: 'LANGAGES',
@@ -361,8 +352,6 @@ export default function Home() {
             </motion.div>
           </div>
         </section>
-
-        {/* Section Soft Skills avec animations interactives */}
 
         {/* Section CTA avec animation de perspective */}
         <section className="py-20 px-4 w-full bg-foreground/5 relative overflow-hidden" ref={ctaSectionRef}>

@@ -3,7 +3,6 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import ProjectCard from '@/components/projects/ProjectCard';
-import NeonEffect from '@/components/ui/NeonEffect';
 import { projects } from '@/data/projects';
 
 export default function ProjectsPage() {

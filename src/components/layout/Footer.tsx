@@ -1,20 +1,12 @@
 'use client';
 
 import Link from 'next/link';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { useRef, useEffect } from 'react';
+import { motion, useScroll, useSpring } from 'framer-motion';
+import { useRef } from 'react';
 
 export default function Footer() {
   const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"]
-  });
   
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, -500]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, -200]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0]);
-
   return (
     <footer className="py-12 px-4 border-t border-foreground/10">
       <div className="container mx-auto">
