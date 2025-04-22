@@ -23,7 +23,7 @@ export default function Navbar() {
   return (
     <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${isScrolled ? 'py-3 bg-background/80 backdrop-blur-md shadow-[0_4px_30px_rgba(147,51,234,0.15)]' : 'py-5'}`}>
       <div className="container mx-auto px-6 sm:px-8 md:px-14 flex items-center justify-between">
-        <Link href="/" className="font-['Playfair_Display'] text-2xl tracking-wider" onClick={(e) => {
+        <Link href="/" className="font-['Playfair_Display'] text-2xl tracking-wider" onClick={() => {
           // Empêcher la navigation si on est déjà sur la page d'accueil
           if (pathname === '/') {
             window.scrollTo({
