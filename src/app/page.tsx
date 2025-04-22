@@ -412,16 +412,13 @@ export default function Home() {
               >
                 Prêt à collaborer?
               </motion.h2>
-              <p className="text-foreground/70 mb-8 max-w-xl mx-auto">
-                Que vous ayez besoin d'une application web, mobile ou d'une solution full stack, je suis disponible pour transformer vos idées en réalité.
-              </p>
               
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={ctaSectionInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.2, duration: 0.5 }}
               >
-                <Link href="/contact" className="group relative overflow-hidden rounded-full px-8 py-4 font-medium inline-block">
+                <Link href="/contact" className="group relative overflow-hidden rounded-full px-8 py-4 font-medium inline-block border border-foreground/20">
                   <span className="relative z-10 text-background group-hover:text-background transition-colors">
                     Discutons de votre projet
                   </span>
