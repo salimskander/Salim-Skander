@@ -84,17 +84,17 @@ export default function Home() {
       name: 'LANGAGES',
       icon: '💻',
       skills: [
-        'Python', 'Golang', 'C#', 'Java', 'JavaScript', 
-        'Node.js', 'SQL', 'HTML & CSS', 'MongoDB', 
-        'Swift', 'Kotlin'
+        'Python', 'JavaScript', 'Node.js', 'Golang', 'C#', 'Java', 
+        'SQL', 'NoSQL', 'HTML & CSS', 'MongoDB', 
+        'Swift'
       ]
     },
     {
       name: 'FRAMEWORKS',
       icon: '🔧',
       skills: [
-        'React', 'ReactJs', 'Django', 'Flask',
-        'Express.js', 'SwiftUI', 'Android Studio'
+        'React', 'React-Native', 'Django', 'Flask',
+        'Express.js', "Next.js", "Vue.js"
       ]
     },
     {
