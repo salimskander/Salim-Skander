@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import NeonFloatingButton from "@/components/ui/NeonFloatingButton";
 import NeonParticles from "@/components/ui/NeonParticles";
 import NavigationEvents from "@/components/layout/NavigationEvents";
+import { Analytics } from "@vercel/analytics/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +39,7 @@ export default function RootLayout({
         <Footer />
         <NeonFloatingButton />
         <NavigationEvents />
+        <Analytics />
       </body>
     </html>
   );
