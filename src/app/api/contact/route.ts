@@ -5,12 +5,12 @@ export async function POST(request: Request) {
   try {
     // Récupérer les données du formulaire
     const body = await request.json();
-    const { name, email, message } = body;
+    const { name, email, phone, message } = body;
 
     // Vérifier que toutes les données nécessaires sont présentes
     if (!name || !email || !message) {
       return NextResponse.json(
-        { error: 'Tous les champs sont requis' },
+        { error: 'Le nom, l\'email et le message sont requis' },
         { status: 400 }
       );
     }
@@ -32,6 +32,7 @@ export async function POST(request: Request) {
       text: `
         Nom: ${name}
         Email: ${email}
+        Téléphone: ${phone || 'Non fourni'}
         
         Message:
         ${message}
@@ -39,6 +40,7 @@ export async function POST(request: Request) {
       html: `
         <h3>Message de "${name}" via portfolio</h3>
         <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Téléphone:</strong> ${phone}</p>
         <p><strong>Contenu:</strong></p>
         <p>${message.replace(/\n/g, '<br>')}</p>
       `,
