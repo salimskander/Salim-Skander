@@ -22,27 +22,12 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Salim Skander | Portfolio",
   description: "Portfolio de Salim Skander, développeur full stack & mobile",
-  openGraph: {
-    title: "Salim Skander | Portfolio",
-    description: "Portfolio de Salim Skander, développeur full stack & mobile",
-    url: "https://salims.fr",
-    siteName: "Portfolio de Salim Skander",
-    images: [
-      {
-        url: "/ma_tete.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Salim Skander - Développeur Full Stack & Mobile",
-      },
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/ma_tete.jpg', type: 'image/jpeg' }
     ],
-    locale: "fr_FR",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Salim Skander | Portfolio",
-    description: "Portfolio de Salim Skander, développeur full stack & mobile",
-    images: ["/ma_tete.jpg"],
+    apple: { url: '/ma_tete.jpg', type: 'image/jpeg' },
   },
 };
 
