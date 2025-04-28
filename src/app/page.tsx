@@ -137,23 +137,23 @@ export default function Home() {
           />
         </div>
 
-        {/* Section Hero */}
-        <section className="min-h-screen flex flex-col items-center justify-center gap-8 p-4 md:p-8 w-full relative">
+        {/* Section Hero - Amélioré pour mobile */}
+        <section className="min-h-screen flex flex-col items-center justify-center gap-6 sm:gap-8 p-4 md:p-8 w-full relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center relative z-10"
+            className="text-center relative z-10 w-full"
           >
-            {/* Nom avec effet néon */}
+            {/* Nom avec effet néon - taille adaptée pour mobile */}
             <AnimatedText 
               text="Salim Skander"
-              className="text-5xl md:text-7xl font-bold mb-4 flex justify-center flex-wrap"
+              className="text-4xl sm:text-5xl md:text-7xl font-bold mb-3 sm:mb-4 flex justify-center flex-wrap"
               delay={0.2}
             />
             
             <motion.h2 
-              className="text-xl md:text-2xl text-foreground/80 mb-8"
+              className="text-lg sm:text-xl md:text-2xl text-foreground/80 mb-6 sm:mb-8 px-2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.8 }}
@@ -161,12 +161,12 @@ export default function Home() {
               <NeonEffect color="purple" intensity="low" pulsate>Développeur Full Stack & Mobile</NeonEffect>
             </motion.h2>
             
-            {/* Boutons avec bordure néon */}
+            {/* Boutons avec bordure néon - adaptés pour mobile */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.6, duration: 0.5 }}
-              className="flex flex-col md:flex-row gap-6 justify-center items-center"
+              className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center"
             >
               <FancyButton
                 text="Voir mes projets"
@@ -181,32 +181,32 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
-            className="mt-16 text-sm text-foreground/60 flex flex-col items-center"
+            className="mt-10 sm:mt-16 text-sm text-foreground/60 flex flex-col items-center"
           >
             <p>Scrollez pour découvrir</p>
             <div className="animate-bounce mt-2">↓</div>
           </motion.div>
         </section>
 
-        {/* Section Hard Skills avec design amélioré */}
-        <section className="py-20 px-4 w-full" ref={techSectionRef}>
+        {/* Section Hard Skills avec design amélioré pour mobile */}
+        <section className="py-16 sm:py-20 px-4 w-full" ref={techSectionRef}>
           <div className="container mx-auto max-w-6xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={techSectionInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="text-center mb-12"
+              className="text-center mb-10 sm:mb-12"
             >
-              <h2 className="text-3xl md:text-5xl font-bold tracking-wide bg-gradient-to-r from-purple-600 via-violet-500 to-purple-600 bg-clip-text text-transparent mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-wide bg-gradient-to-r from-purple-600 via-violet-500 to-purple-600 bg-clip-text text-transparent mb-4">
                 COMPÉTENCES
               </h2>
-              <div className="h-1 w-32 bg-gradient-to-r from-purple-600 to-violet-600 mx-auto rounded-full"></div>
+              <div className="h-1 w-24 sm:w-32 bg-gradient-to-r from-purple-600 to-violet-600 mx-auto rounded-full"></div>
             </motion.div>
             
-            {/* Hard Skills Section - Grid Layout */}
-            <div className="mb-20">
+            {/* Hard Skills Section - Grid Layout adapté pour mobile */}
+            <div className="mb-16 sm:mb-20">
               <motion.h3 
-                className="text-2xl md:text-3xl font-bold mb-10 text-center"
+                className="text-xl sm:text-2xl md:text-3xl font-bold mb-8 sm:mb-10 text-center"
                 initial={{ opacity: 0 }}
                 animate={techSectionInView ? { opacity: 1 } : {}}
                 transition={{ delay: 0.3 }}
@@ -217,7 +217,7 @@ export default function Home() {
                 </span>
               </motion.h3>
               
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 {hardSkills.map((category, categoryIndex) => (
                   <motion.div
                     key={category.name}
@@ -226,10 +226,10 @@ export default function Home() {
                     transition={{ duration: 0.5, delay: 0.2 + categoryIndex * 0.2 }}
                     className="group"
                   >
-                    <div className="bg-background/30 backdrop-blur-md p-8 rounded-2xl border border-foreground/5 hover:border-purple-500/30 transition-all duration-300 h-full shadow-lg hover:shadow-purple-500/10 hover:-translate-y-1">
-                      <div className="flex items-center justify-center gap-3 mb-6">
-                        <span className="text-3xl">{category.icon}</span>
-                        <h4 className="text-xl font-bold tracking-wider text-center bg-gradient-to-r from-purple-400 to-violet-400 bg-clip-text text-transparent">
+                    <div className="bg-background/30 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-foreground/5 hover:border-purple-500/30 transition-all duration-300 h-full shadow-lg hover:shadow-purple-500/10 hover:-translate-y-1">
+                      <div className="flex items-center justify-center gap-3 mb-5 sm:mb-6">
+                        <span className="text-2xl sm:text-3xl">{category.icon}</span>
+                        <h4 className="text-lg sm:text-xl font-bold tracking-wider text-center bg-gradient-to-r from-purple-400 to-violet-400 bg-clip-text text-transparent">
                           {category.name}
                         </h4>
                       </div>
@@ -241,7 +241,7 @@ export default function Home() {
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={techSectionInView ? { opacity: 1, scale: 1 } : {}}
                             transition={{ delay: 0.4 + categoryIndex * 0.1 + index * 0.05, duration: 0.3 }}
-                            className="px-4 py-2 bg-gradient-to-br from-foreground/5 to-foreground/10 rounded-xl text-sm font-medium transition-all duration-300 border border-foreground/10 hover:border-purple-500/40 hover:bg-purple-500/5 cursor-default relative overflow-hidden group"
+                            className="px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-br from-foreground/5 to-foreground/10 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 border border-foreground/10 hover:border-purple-500/40 hover:bg-purple-500/5 cursor-default relative overflow-hidden group"
                           >
                             {skill}
                             <motion.span 
@@ -257,20 +257,20 @@ export default function Home() {
               </div>
             </div>
             
-            {/* Soft Skills Section - Design alternatif */}
+            {/* Soft Skills Section - Adapté pour mobile */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={techSectionInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.8 }}
             >
-              <h3 className="text-2xl md:text-3xl font-bold mb-10 text-center">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-8 sm:mb-10 text-center">
                 <span className="relative">
                   <span className="bg-gradient-to-r from-purple-500 to-violet-500 bg-clip-text text-transparent">SOFT SKILLS</span>
                   <span className="absolute -bottom-2 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-500 to-violet-500"></span>
                 </span>
               </h3>
               
-              <div className="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
+              <div className="flex flex-wrap justify-center gap-4 sm:gap-6 max-w-4xl mx-auto">
                 {softSkills.map((skill, index) => (
                   <motion.div
                     key={skill}
@@ -289,9 +289,9 @@ export default function Home() {
                     className="relative group"
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-purple-600/30 to-violet-600/30 blur-xl opacity-0 group-hover:opacity-80 transition-opacity duration-300 rounded-lg"/>
-                    <div className="w-[140px] h-[140px] bg-foreground/5 backdrop-blur-sm rounded-lg p-4 flex flex-col items-center justify-center gap-3 border border-foreground/10 group-hover:border-purple-500/50 transition-all duration-300 shadow-lg transform hover:rotate-0 relative">
-                      <div className="w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-br from-purple-500/20 to-violet-500/20 group-hover:from-purple-500/30 group-hover:to-violet-500/30 transition-colors duration-300">
-                        <span className="text-2xl">
+                    <div className="w-[120px] sm:w-[140px] h-[120px] sm:h-[140px] bg-foreground/5 backdrop-blur-sm rounded-lg p-3 sm:p-4 flex flex-col items-center justify-center gap-2 sm:gap-3 border border-foreground/10 group-hover:border-purple-500/50 transition-all duration-300 shadow-lg transform hover:rotate-0 relative">
+                      <div className="w-10 sm:w-12 h-10 sm:h-12 flex items-center justify-center rounded-full bg-gradient-to-br from-purple-500/20 to-violet-500/20 group-hover:from-purple-500/30 group-hover:to-violet-500/30 transition-colors duration-300">
+                        <span className="text-xl sm:text-2xl">
                           {index % 8 === 0 ? "🧠" : 
                            index % 8 === 1 ? "🔄" : 
                            index % 8 === 2 ? "🤝" : 
@@ -301,9 +301,9 @@ export default function Home() {
                            index % 8 === 6 ? "👥" : "📝"}
                         </span>
                       </div>
-                      <p className="text-center font-medium text-sm">{skill}</p>
-                      <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-purple-500/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"/>
-                      <div className="absolute -top-1 -left-1 w-3 h-3 bg-violet-500/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"/>
+                      <p className="text-center font-medium text-xs sm:text-sm">{skill}</p>
+                      <div className="absolute -bottom-1 -right-1 w-4 sm:w-5 h-4 sm:h-5 bg-purple-500/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"/>
+                      <div className="absolute -top-1 -left-1 w-2 sm:w-3 h-2 sm:h-3 bg-violet-500/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"/>
                     </div>
                   </motion.div>
                 ))}
@@ -312,8 +312,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Section CTA avec animation de perspective */}
-        <section className="py-20 px-4 w-full bg-foreground/5 relative overflow-hidden" ref={ctaSectionRef}>
+        {/* Section CTA avec animation de perspective - adaptée pour mobile */}
+        <section className="py-16 sm:py-20 px-4 w-full bg-foreground/5 relative overflow-hidden" ref={ctaSectionRef}>
           <AnimatePresence>
             {ctaSectionInView && (
               <motion.div
@@ -347,7 +347,7 @@ export default function Home() {
               transition={{ duration: 0.8 }}
             >
               <motion.h2 
-                className="text-3xl md:text-4xl font-bold mb-6"
+                className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6"
                 animate={ctaSectionInView ? {
                   textShadow: ["0 0 0px rgba(0,0,0,0)", "0 0 15px rgba(59, 130, 246, 0.5)", "0 0 0px rgba(0,0,0,0)"]
                 } : {}}
@@ -366,7 +366,7 @@ export default function Home() {
                 animate={ctaSectionInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.2, duration: 0.5 }}
               >
-                <Link href="/contact" className="group relative overflow-hidden rounded-full px-8 py-4 font-medium inline-block border border-foreground/20">
+                <Link href="/contact" className="group relative overflow-hidden rounded-full px-6 sm:px-8 py-3 sm:py-4 font-medium inline-block border border-foreground/20">
                   <span className="relative z-10 text-background group-hover:text-background transition-colors">
                     Discutons de votre projet
                   </span>

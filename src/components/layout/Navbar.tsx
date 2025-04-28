@@ -81,7 +81,7 @@ export default function Navbar() {
         </nav>
         
         {/* Bouton menu mobile */}
-        <button 
+        <button
           className="md:hidden flex flex-col gap-1.5 z-50"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Menu"
