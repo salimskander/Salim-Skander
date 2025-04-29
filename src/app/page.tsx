@@ -84,8 +84,8 @@ export default function Home() {
       name: 'LANGAGES',
       icon: '💻',
       skills: [
-        'Python', 'JavaScript', 'Node.js', 'Golang', 'C#', 'Java', 
-        'SQL', 'NoSQL', 'HTML & CSS', 'MongoDB', 
+        'Python', 'JavaScript', 'Node.js',  
+        'SQL', 'NoSQL', 'HTML & CSS', 'MongoDB', 'Golang', 
         'Swift'
       ]
     },
