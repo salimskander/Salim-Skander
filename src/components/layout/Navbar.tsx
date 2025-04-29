@@ -20,10 +20,29 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Fermer le menu mobile lors du changement de route
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
+
+  // Empêcher le défilement du body quand le menu mobile est ouvert
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isMenuOpen]);
+
   return (
-    <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${isScrolled ? 'py-3 bg-background/80 backdrop-blur-md shadow-[0_4px_30px_rgba(147,51,234,0.15)]' : 'py-5'}`}>
-      <div className="container mx-auto px-6 sm:px-8 md:px-14 flex items-center justify-between">
-        <Link href="/" className="font-['Playfair_Display'] text-2xl tracking-wider" onClick={() => {
+    <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+      isScrolled ? 'py-2 sm:py-3 bg-background/80 backdrop-blur-md shadow-[0_4px_30px_rgba(147,51,234,0.15)]' : 'py-3 sm:py-5'
+    }`}>
+      <div className="container mx-auto px-4 sm:px-6 md:px-14 flex items-center justify-between">
+        <Link href="/" className="font-['Playfair_Display'] text-xl sm:text-2xl tracking-wider" onClick={() => {
           // Empêcher la navigation si on est déjà sur la page d'accueil
           if (pathname === '/') {
             window.scrollTo({
@@ -80,35 +99,81 @@ export default function Navbar() {
           })}
         </nav>
         
-        {/* Bouton menu mobile */}
+        {/* Bouton menu mobile avec SVG */}
         <button
-          className="md:hidden flex flex-col gap-1.5 z-50"
+          className="md:hidden flex items-center justify-center z-50 p-2 relative transition-all duration-300"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Menu"
+          aria-expanded={isMenuOpen}
         >
-          <motion.span 
-            animate={{ 
-              rotate: isMenuOpen ? 45 : 0,
-              y: isMenuOpen ? 8 : 0
-            }}
-            className="w-6 h-0.5 bg-foreground block transition-transform"
-          />
-          <motion.span 
-            animate={{ opacity: isMenuOpen ? 0 : 1 }}
-            className="w-6 h-0.5 bg-foreground block"
-          />
-          <motion.span 
-            animate={{ 
-              rotate: isMenuOpen ? -45 : 0,
-              y: isMenuOpen ? -8 : 0
-            }}
-            className="w-6 h-0.5 bg-foreground block transition-transform"
-          />
+          <div className="relative w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-br from-purple-500/20 to-violet-500/20 hover:from-purple-500/30 hover:to-violet-500/30 shadow-sm hover:shadow-md transition-all duration-300">
+            <motion.svg 
+              width="24" 
+              height="24" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg"
+              animate={{ rotate: isMenuOpen ? 90 : 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              {isMenuOpen ? (
+                <motion.path 
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ duration: 0.3 }}
+                  d="M6 6L18 18M6 18L18 6" 
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  strokeLinecap="round"
+                />
+              ) : (
+                <>
+                  <motion.path 
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    animate={{ pathLength: 1, opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.1 }}
+                    d="M4 6H20" 
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    strokeLinecap="round"
+                  />
+                  <motion.path 
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    animate={{ pathLength: 1, opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.2 }}
+                    d="M4 12H20" 
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    strokeLinecap="round"
+                  />
+                  <motion.path 
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    animate={{ pathLength: 1, opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.3 }}
+                    d="M4 18H20" 
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    strokeLinecap="round"
+                  />
+                </>
+              )}
+            </motion.svg>
+            
+            {!isMenuOpen && (
+              <motion.span 
+                initial={{ opacity: 0, y: 5 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="absolute -bottom-6 text-xs font-medium text-purple-400 whitespace-nowrap"
+              >
+              </motion.span>
+            )}
+          </div>
         </button>
         
         {/* Menu version mobile */}
         <motion.div
-          className="fixed inset-0 bg-background flex md:hidden flex-col items-center justify-center z-40"
+          className="fixed inset-0 bg-background/95 backdrop-blur-md flex md:hidden flex-col items-center justify-center z-40"
           initial={{ clipPath: "circle(0% at top right)" }}
           animate={{ 
             clipPath: isMenuOpen 
@@ -117,7 +182,7 @@ export default function Navbar() {
           }}
           transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
         >
-          <nav className="flex flex-col items-center gap-8">
+          <nav className="flex flex-col items-center gap-8 w-full px-6">
             {['accueil', 'projets', 'a propos', 'contact'].map((item, i) => {
               const href = item === 'accueil' ? '/' : `/${item.replace(' ', '-')}`;
               const isActive = pathname === href;
@@ -135,14 +200,17 @@ export default function Navbar() {
                     duration: 0.4,
                     ease: "easeOut"
                   }}
+                  className="w-full text-center"
                 >
                   <Link 
                     href={href}
-                    className={`text-xl font-medium relative ${isActive ? 'text-purple-500' : ''}`}
+                    className={`text-2xl font-medium relative block py-3 ${isActive ? 'text-purple-500' : ''}`}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.charAt(0).toUpperCase() + item.slice(1)}
-                    {isActive && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-purple-500 shadow-[0_0_5px_#9333EA]" />}
+                    <span className={`absolute -bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 bg-purple-500 transition-all duration-300 ${
+                      isActive ? 'w-16 shadow-[0_0_5px_#9333EA]' : 'w-0'
+                    }`} />
                   </Link>
                 </motion.div>
               );
