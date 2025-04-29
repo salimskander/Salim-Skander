@@ -173,7 +173,7 @@ export default function Navbar() {
         
         {/* Menu version mobile */}
         <motion.div
-          className="fixed inset-0 bg-background/95 backdrop-blur-md flex md:hidden flex-col items-center justify-center z-40"
+          className="fixed inset-0 bg-white/90 backdrop-blur-lg flex md:hidden flex-col items-center justify-center z-40"
           initial={{ clipPath: "circle(0% at top right)" }}
           animate={{ 
             clipPath: isMenuOpen 
@@ -181,6 +181,17 @@ export default function Navbar() {
               : "circle(0% at top right)"
           }}
           transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+          style={{ 
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            height: '100vh',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
         >
           <nav className="flex flex-col items-center gap-8 w-full px-6">
             {['accueil', 'projets', 'a propos', 'contact'].map((item, i) => {
