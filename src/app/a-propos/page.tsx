@@ -9,7 +9,7 @@ export default function AboutPage() {
   // Parcours académique et professionnel
   const experiences = [
     {
-      period: 'Oct. 2024 - Présent',
+      period: '2024 - Présent',
       role: 'Développeur Python',
       company: 'Yunohit',
       description: "Développement d'applications et solutions Python au sein d'une startup innovante, en parallèle de ma formation."
@@ -150,17 +150,17 @@ export default function AboutPage() {
               >
                 {/* Ligne verticale pour connecter les expériences */}
                 {index < experiences.length - 1 && (
-                  <div className="absolute left-[7px] md:left-[132px] top-[28px] w-0.5 h-[calc(100%+48px)] bg-gradient-to-b from-purple-500/30 to-transparent"></div>
+                  <div className="absolute left-[7px] md:left-[132px] top-[28px] w-0.5 h-[calc(100%+48px)] bg-gradient-to-b from-purple-500/30 to-transparent hidden md:block"></div>
                 )}
                 
                 {/* Point pour marquer l'année */}
-                <div className="w-[15px] h-[15px] rounded-full bg-purple-500 absolute left-0 md:left-32 top-[10px] z-10 shadow-[0_0_8px_rgba(147,51,234,0.6)]"></div>
+                <div className="w-[15px] h-[15px] rounded-full bg-purple-500 absolute left-0 md:left-32 top-[10px] z-10 shadow-[0_0_8px_rgba(147,51,234,0.6)] hidden md:block"></div>
                 
-                <div className="w-24 md:w-32 shrink-0 text-foreground/60 font-medium pl-8 md:pl-0 md:text-right -ml-4">
+                <div className="w-full md:w-32 shrink-0 text-foreground/60 font-medium md:text-right mb-2 md:mb-0 md:pr-6 md:min-w-[120px] md:whitespace-normal">
                   {experience.period}
                 </div>
                 
-                <div className="pl-8 md:pl-12 border-l border-foreground/10 md:border-none">
+                <div className="md:pl-12">
                   <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-violet-500">{experience.role}</h3>
                   <p className="text-foreground/70 font-medium mb-2">{experience.company}</p>
                   <p className="text-foreground/80">{experience.description}</p>
