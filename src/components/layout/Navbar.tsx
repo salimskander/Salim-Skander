@@ -215,7 +215,7 @@ export default function Navbar() {
                 >
                   <Link 
                     href={href}
-                    className={`text-2xl font-medium relative block py-3 text-foreground ${isActive ? 'text-purple-500' : ''}`}
+                    className={`text-2xl font-medium relative block py-3 ${isActive ? 'text-purple-500' : 'text-black dark:text-black'}`}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.charAt(0).toUpperCase() + item.slice(1)}
