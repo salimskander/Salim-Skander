@@ -14,7 +14,7 @@ export const projects: Project[] = [
       "/projects/human-capacities-detail-3.jpg",
       "/projects/human-capacities-detail-4.jpg"
     ],
-    link: "https://human-capacities.vercel.app/",
+    link: "https://human-capacities-iota.vercel.app/",
     github: "https://github.com/salimskander/human-capacities",
     date: "decembre 2024",
     category: "Web Application"
